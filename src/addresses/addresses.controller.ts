@@ -4,8 +4,10 @@ import { CreateAddressDto } from './dto/create-address.dto';
 import { Request } from '@nestjs/common';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { IdParamsDto } from 'src/dto/id-params.dto';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
-
+@ApiBearerAuth()
+@ApiTags('Addresses')
 @Controller('addresses')
 export class AddressesController {
   constructor(private readonly addressesService: AddressesService) { }

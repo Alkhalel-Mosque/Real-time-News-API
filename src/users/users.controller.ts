@@ -5,7 +5,9 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { IdParamsDto } from 'src/dto/id-params.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { Request } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('User')
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) { }
@@ -16,6 +18,7 @@ export class UsersController {
         return this.usersService.create(createUserDto)
     }
     // update profile by id (a protected route)
+    @ApiBearerAuth()
     @UseGuards(AuthGuard)
     @Patch(':id')
     async update(@Request() req, @Param(ValidationPipe) params: IdParamsDto, @Body(ValidationPipe) updateUserDto: UpdateUserDto) {
