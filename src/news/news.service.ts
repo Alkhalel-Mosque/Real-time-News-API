@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { New } from './schemas/New.schema';
+import { New } from './schemas/new.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { WsException } from '@nestjs/websockets';
 import { JwtService } from '@nestjs/jwt';
