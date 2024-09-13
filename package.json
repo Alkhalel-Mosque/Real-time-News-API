@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "description": "",
   "author": "",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/main.js",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+    }
+  ],
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
